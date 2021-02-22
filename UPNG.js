@@ -1,4 +1,4 @@
-import pako from 'pako';
+import zlib from 'zlib';
 
 var UPNG = {};
 
@@ -787,8 +787,6 @@ UPNG.encode._filterZero = function(img,h,bpp,bpl,data, filter, levelZero)
 	else if(h*bpl>500000 || bpp==1) ftry=[0];
 	var opts;  if(levelZero) opts={level:0};
 
-	var CMPR = (levelZero && UZIP!=null) ? UZIP : pako;
-
 	for(var i=0; i<ftry.length; i++) {
 		for(var y=0; y<h; y++) UPNG.encode._filterLine(data, img, y, bpl, bpp, ftry[i]);
 		//var nimg = new Uint8Array(data.length);
@@ -796,7 +794,7 @@ UPNG.encode._filterZero = function(img,h,bpp,bpl,data, filter, levelZero)
 		//var dfl = pako["deflate"](data), dl=dfl.length-4;
 		//var crc = (dfl[dl+3]<<24)|(dfl[dl+2]<<16)|(dfl[dl+1]<<8)|(dfl[dl+0]<<0);
 		//console.log(crc, UZIP.adler(data,2,data.length-6));
-		fls.push(CMPR["deflate"](data,opts));
+		fls.push(new Uint8Array(zlib.deflateSync(data,opts)));
 	}
 	var ti, tsize=1e9;
 	for(var i=0; i<fls.length; i++) if(fls[i].length<tsize) {  ti=i;  tsize=fls[i].length;  }

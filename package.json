@@ -31,9 +31,7 @@
     "image",
     "conversion"
   ],
-  "dependencies": {
-    "pako": "^1.0.10"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
