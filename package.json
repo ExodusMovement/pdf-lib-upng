@@ -4,24 +4,16 @@
   "version": "1.0.1",
   "description": "Small, fast and advanced PNG / APNG encoder and decoder",
   "main": "cjs/UPNG.js",
-  "unpkg": "dist/UPNG.min.js",
-  "module": "UPNG.js",
   "types": "index.d.ts",
   "files": [
     "cjs/",
-    "dist/",
-    "UPNG.js",
     "index.d.ts",
     "LICENSE.md",
     "package.json",
-    "README.md",
-    "yarn.lock"
+    "README.md"
   ],
   "scripts": {
-    "build": "yarn build:cjs && yarn build:umd && yarn build:umd:min",
-    "build:cjs": "babel --plugins @babel/plugin-transform-modules-commonjs --out-dir cjs UPNG.js",
-    "build:umd": "rollup --config rollup.config.js --file dist/UPNG.js",
-    "build:umd:min": "rollup --config rollup.config.js --file dist/UPNG.min.js --environment MINIFY"
+    "build": "babel --plugins @babel/plugin-transform-modules-commonjs --out-dir cjs UPNG.js"
   },
   "repository": {
     "type": "git",
