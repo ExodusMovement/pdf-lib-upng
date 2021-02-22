@@ -1,7 +1,7 @@
 {
-  "name": "@pdf-lib/upng",
+  "name": "@exodus/pdf-lib-upng",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.1-exodus0",
   "description": "Small, fast and advanced PNG / APNG encoder and decoder",
   "main": "cjs/UPNG.js",
   "types": "index.d.ts",
